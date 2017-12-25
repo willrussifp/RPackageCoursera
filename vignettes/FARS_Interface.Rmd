@@ -1,0 +1,53 @@
+---
+title: "FARS Interface"
+author: "Will Russ"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This package includes tools for loading, summarizing, and visualizing data from the Fatality Analysis Reporting System. 
+
+We begin by loading FARS data for one year. We use the 'make_filename' function to get the filename for a specific year. Note that the working directly must be set to the folder containing the data.
+
+```{r}
+library(RPackageCoursera)
+filename <- make_filename(2013)
+filename
+```
+
+Now, we load the data using 'fars_read'.
+
+```{r}
+fars_data <- fars_read(filename)
+head(fars_data)
+```
+
+
+
+We think there may be a rise in accidents in the winter months of 2015. We will use 'fars_summarize_years' to compare the number of accidents across years by month.
+
+```{r}
+fars_summarize_years(2013:2015)
+```
+We see there was a slight rise in 2015.
+
+
+
+Finally, we want to visualize the accidents in 2015 for the state of South Carolina. We use 'fars_map_state' which draws a map of South Carolina with a dot for each accident.
+
+```{r}
+fars_map_state(45, 2015)
+```
+
+

@@ -1,0 +1,14 @@
+Package: RPackageCoursera
+Title: Final Project for "Building an R Package" on Coursera
+Version: 0.0.0.9000
+Authors@R: person("Will", "Russ", email = "william.russ@ifpress.com", role = c("aut", "cre"))
+Description: Includes the final R file and documentation required to pass the final project of the "Building an R Package" course on Coursera.
+Depends: R (>= 3.4.3)
+License: Creative Commons Zero
+Encoding: UTF-8
+LazyData: true
+Suggests: testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1
