@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: person("Will", "Russ", email = "william.russ@ifpress.com", role = c("aut", "cre"))
 Description: Includes the final R file and documentation required to pass the final project of the "Building an R Package" course on Coursera.
 Depends: R (>= 3.4.2)
-License: Creative Commons Zero
+License: CC0
 Encoding: UTF-8
 LazyData: true
 Imports: dplyr, 
