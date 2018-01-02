@@ -5,11 +5,14 @@ test_that("function test", {
    expect_that(nchar(test_filename), equals(21))
    test_file <- system.file("extdata", test_filename, package="RPackageCoursera")
    setwd(system.file("extdata", package = "RPackageCoursera"))
-   print(getwd())
-   fars_data <- fars_read(test_file)
-   expect_that(dplyr::is.tbl(fars_data), is_true())
-   fars_summary <- fars_summarize_years(c(2013, 2014))
-   expect_that(dplyr::is.tbl(fars_summary), is_true())
-   expect_that(dim(fars_summary), equals(c(12, 3)))
+   if(file.exists(test_file)) {
+      fars_data <- fars_read(test_file)
+      expect_that(dplyr::is.tbl(fars_data), is_true())
+   }
+   if(file.exists("accident_2013.csv.bz2") & file.exists("accident_2014.csv.bz2")) {
+      fars_summary <- fars_summarize_years(c(2013, 2014))
+      expect_that(dplyr::is.tbl(fars_summary), is_true())
+      expect_that(dim(fars_summary), equals(c(12, 3)))
+   }
    setwd(curr_working_dir)
 })

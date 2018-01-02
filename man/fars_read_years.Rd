@@ -27,7 +27,7 @@ This function will return a warning
    if the data for a specified year 
    cannot be found.
    
-Note: This function requires magrittr
+Note: This function requires magrittr or tidyr
    is already loaded or it will return
    an error.
 }

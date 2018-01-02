@@ -69,7 +69,7 @@ make_filename <- function(year) {
 #'    if the data for a specified year 
 #'    cannot be found.
 #'    
-#' Note: This function requires magrittr
+#' Note: This function requires magrittr or tidyr
 #'    is already loaded or it will return
 #'    an error.
 #' 
@@ -89,7 +89,7 @@ make_filename <- function(year) {
 #' fars_read_years(c("2013", "2015"))
 #' fars_read_years(list(2013, 2014))
 #' 
-#' @import magrittr dplyr
+#' @import tidyr
 #' 
 #' @export
 fars_read_years <- function(years) {
@@ -138,7 +138,7 @@ fars_read_years <- function(years) {
 #' fars_summarize_years(c("2013", "2015"))
 #' fars_summarize_years(list(2013, 2014))
 #' 
-#' @import dplyr magrittr tidyr
+#' @import tidyr
 #' 
 #' @export
 fars_summarize_years <- function(years) {
