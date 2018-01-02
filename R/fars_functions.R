@@ -83,11 +83,13 @@ make_filename <- function(year) {
 #'   return are MONTH and year.
 #'   
 #' @examples
+#' \dontrun{
 #' fars_read_years(2013)
 #' fars_read_years(c(2013, 2014))
 #' fars_read_years(2013:2015)
 #' fars_read_years(c("2013", "2015"))
 #' fars_read_years(list(2013, 2014))
+#' }
 #' 
 #' @import tidyr
 #' 
@@ -132,11 +134,13 @@ fars_read_years <- function(years) {
 #'    counts for the relevant month and year.
 #' 
 #' @examples 
+#' \dontrun{
 #' fars_summarize_years(2013)   
 #' fars_summarize_years(c(2013, 2014))
 #' fars_summarize_years(2013:2015)
 #' fars_summarize_years(c("2013", "2015"))
 #' fars_summarize_years(list(2013, 2014))
+#' }
 #' 
 #' @import tidyr
 #' 
@@ -183,10 +187,12 @@ fars_summarize_years <- function(years) {
 #'    message to notify that case.
 #' 
 #' @examples 
+#' \dontrun{
 #' fars_map_state(13, 2013)
 #' fars_map_state(13, "2013")
 #' fars_map_state("13", 2013)
 #' fars_map_state("13", "2013")
+#' }
 #' 
 #' @import dplyr maps
 #'   
