@@ -21,7 +21,7 @@ This package includes tools for loading, summarizing, and visualizing data from 
 We begin by loading FARS data for one year. We use the 'make_filename' function to get the filename for a specific year. Note that the working directly must be set to the folder containing the data.
 
 ```{r}
-library(tidyverse)
+library(magrittr)
 library(RPackageCoursera)
 filename <- make_filename(2013)
 filename
