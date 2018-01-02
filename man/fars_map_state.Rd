@@ -41,9 +41,11 @@ Note: The function will return an error if the
    of bounds.
 }
 \examples{
+\dontrun{
 fars_map_state(13, 2013)
 fars_map_state(13, "2013")
 fars_map_state("13", 2013)
 fars_map_state("13", "2013")
+}
 
 }

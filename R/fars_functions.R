@@ -16,7 +16,7 @@
 #' @examples
 #' fars_read("data/accident_2013.csv.bz2")
 #' 
-#' @import readr dplyr
+#' @import readr tidyverse
 #' 
 #' @export
 fars_read <- function(filename) {
@@ -91,7 +91,7 @@ make_filename <- function(year) {
 #' fars_read_years(list(2013, 2014))
 #' }
 #' 
-#' @import tidyr
+#' @import tidyverse
 #' 
 #' @export
 fars_read_years <- function(years) {
@@ -100,7 +100,7 @@ fars_read_years <- function(years) {
                 tryCatch({
                         dat <- fars_read(file)
                         dplyr::mutate(dat, year = year) %>% 
-                                dplyr::select(MONTH, year)
+                           dplyr::select(MONTH, year)
                 }, error = function(e) {
                         warning("invalid year: ", year)
                         return(NULL)
@@ -142,15 +142,15 @@ fars_read_years <- function(years) {
 #' fars_summarize_years(list(2013, 2014))
 #' }
 #' 
-#' @import tidyr
+#' @import tidyverse
 #' 
 #' @export
 fars_summarize_years <- function(years) {
         dat_list <- fars_read_years(years)
         dplyr::bind_rows(dat_list) %>% 
-                dplyr::group_by(year, MONTH) %>% 
-                dplyr::summarize(n = n()) %>%
-                tidyr::spread(year, n)
+           dplyr::group_by(year, MONTH) %>% 
+           dplyr::summarize(n = n()) %>%
+           tidyr::spread(year, n)
 }
 
 #' Plot FARS observation locations within a state
@@ -194,7 +194,7 @@ fars_summarize_years <- function(years) {
 #' fars_map_state("13", "2013")
 #' }
 #' 
-#' @import dplyr maps
+#' @import tidyverse maps
 #'   
 #' @export
 fars_map_state <- function(state.num, year) {

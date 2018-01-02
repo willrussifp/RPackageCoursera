@@ -33,10 +33,12 @@ This function creates a summary table
    an error.
 }
 \examples{
+\dontrun{
 fars_summarize_years(2013)   
 fars_summarize_years(c(2013, 2014))
 fars_summarize_years(2013:2015)
 fars_summarize_years(c("2013", "2015"))
 fars_summarize_years(list(2013, 2014))
+}
 
 }

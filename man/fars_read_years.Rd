@@ -32,10 +32,12 @@ Note: This function requires magrittr or tidyr
    an error.
 }
 \examples{
+\dontrun{
 fars_read_years(2013)
 fars_read_years(c(2013, 2014))
 fars_read_years(2013:2015)
 fars_read_years(c("2013", "2015"))
 fars_read_years(list(2013, 2014))
+}
 
 }
