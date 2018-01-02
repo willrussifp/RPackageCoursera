@@ -5,6 +5,7 @@ test_that("function test", {
    expect_that(nchar(test_filename), equals(21))
    test_file <- system.file("extdata", test_filename, package="RPackageCoursera")
    setwd(system.file("extdata", package = "RPackageCoursera"))
+   print(getwd())
    fars_data <- fars_read(test_file)
    expect_that(dplyr::is.tbl(fars_data), is_true())
    fars_summary <- fars_summarize_years(c(2013, 2014))
