@@ -12,7 +12,7 @@
 
 <meta name="author" content="Will Russ" />
 
-<meta name="date" content="2017-12-24" />
+<meta name="date" content="2018-01-02" />
 
 <title>FARS Interface</title>
 
@@ -70,13 +70,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">FARS Interface</h1>
 <h4 class="author"><em>Will Russ</em></h4>
-<h4 class="date"><em>2017-12-24</em></h4>
+<h4 class="date"><em>2018-01-02</em></h4>
 
 
 
 <p>This package includes tools for loading, summarizing, and visualizing data from the Fatality Analysis Reporting System.</p>
 <p>We begin by loading FARS data for one year. We use the ‘make_filename’ function to get the filename for a specific year. Note that the working directly must be set to the folder containing the data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RPackageCoursera)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(magrittr)
+<span class="kw">library</span>(RPackageCoursera)
 <span class="co">#&gt; Warning: replacing previous import 'magrittr::extract' by 'tidyr::extract'</span>
 <span class="co">#&gt; when loading 'RPackageCoursera'</span>
 filename &lt;-<span class="st"> </span><span class="kw">make_filename</span>(<span class="dv">2013</span>)
@@ -104,7 +105,7 @@ filename
 <span class="co">#&gt; #   SCH_BUS &lt;int&gt;, RAIL &lt;chr&gt;, NOT_HOUR &lt;int&gt;, NOT_MIN &lt;int&gt;,</span>
 <span class="co">#&gt; #   ARR_HOUR &lt;int&gt;, ARR_MIN &lt;int&gt;, HOSP_HR &lt;int&gt;, HOSP_MN &lt;int&gt;,</span>
 <span class="co">#&gt; #   CF1 &lt;int&gt;, CF2 &lt;int&gt;, CF3 &lt;int&gt;, FATALS &lt;int&gt;, DRUNK_DR &lt;int&gt;</span></code></pre></div>
-<p>We think there may be a rise in accidents in the winter months of 2015. We will use ‘fars_summarize_years’ to compare accidents across years by month.</p>
+<p>We think there may be a rise in accidents in the winter months of 2015. We will use ‘fars_summarize_years’ to compare the number of accidents across years by month.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fars_summarize_years</span>(<span class="dv">2013</span><span class="op">:</span><span class="dv">2015</span>)
 <span class="co">#&gt; # A tibble: 12 x 4</span>
 <span class="co">#&gt;    MONTH `2013` `2014` `2015`</span>
@@ -122,7 +123,7 @@ filename
 <span class="co">#&gt; 11    11   2615   2714   2724</span>
 <span class="co">#&gt; 12    12   2457   2604   2781</span></code></pre></div>
 <p>We see there was a slight rise in 2015.</p>
-<p>Finally, we want to visualize the accidents in 2015 for the state of South Carolina. We use ‘fars_map_state’.</p>
+<p>Finally, we want to visualize the accidents in 2015 for the state of South Carolina. We use ‘fars_map_state’ which draws a map of South Carolina with a dot for each accident.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">fars_map_state</span>(<span class="dv">45</span>, <span class="dv">2015</span>)</code></pre></div>
 <p><img src="data:image/png;base64,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" /><!-- --></p>
 

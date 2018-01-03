@@ -14,11 +14,9 @@
 #'    Analysis Reporting System data.
 #'   
 #' @examples
-#' \dontrun {
+#' \dontrun{
 #' fars_read("data/accident_2013.csv.bz2")
 #' }
-#' 
-#' @import readr dplyr
 #' 
 #' @export
 fars_read <- function(filename) {
@@ -85,7 +83,7 @@ make_filename <- function(year) {
 #'   return are MONTH and year.
 #'   
 #' @examples
-#' \dontrun {
+#' \dontrun{
 #' fars_read_years(2013)
 #' fars_read_years(c(2013, 2014))
 #' fars_read_years(2013:2015)
@@ -93,7 +91,7 @@ make_filename <- function(year) {
 #' fars_read_years(list(2013, 2014))
 #' }
 #' 
-#' @import dplyr
+#' @import magrittr
 #' 
 #' @export
 fars_read_years <- function(years) {
@@ -144,7 +142,7 @@ fars_read_years <- function(years) {
 #' fars_summarize_years(list(2013, 2014))
 #' }
 #' 
-#' @import dplyr tidyr
+#' @import magrittr
 #' 
 #' @export
 fars_summarize_years <- function(years) {
@@ -195,8 +193,6 @@ fars_summarize_years <- function(years) {
 #' fars_map_state("13", 2013)
 #' fars_map_state("13", "2013")
 #' }
-#' 
-#' @import dplyr maps
 #'   
 #' @export
 fars_map_state <- function(state.num, year) {

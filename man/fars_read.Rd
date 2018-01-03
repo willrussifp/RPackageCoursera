@@ -23,7 +23,7 @@ This is a simple function that silently reads a
    the file exists before attempting to read it.
 }
 \examples{
-\dontrun {
+\dontrun{
 fars_read("data/accident_2013.csv.bz2")
 }
 
